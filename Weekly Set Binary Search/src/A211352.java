@@ -16,19 +16,27 @@ public class A211352 {
     	int[] a = in.nextIntArr(na);
     	int[] b = in.nextIntArr(nb);
     	
-    	int[] asums = new int[na-k + 1];
-    	for (int i = 0; i < na - k + 1; i++) {
-    		if (i == k-1) {
-    			for (int j = 0; j < k-1; j++) {
-    				asums[i] += a[j];
-    			}
-    		}
-    		else {
-    			//asums[i] - a[i-(k-1)] + 
-    		}
+    	//binary search for largest index smaller than smallest element in second array.
+    	for (int i = nb-m; i >=0; i--){
+	    	int lo = 0, hi = na-1, ans = -1;
+	    	while (lo <= hi) {
+	    		int mid = (lo+hi)/2;
+	    		if (a[mid]>=b[i]) hi = mid-1;
+	    		else if (a[mid] < b[i]) {lo = mid+1; ans = mid;}
+	    	}
+	    	if (ans >= k-1 && a[ans] < b[i]) {
+	    		System.out.println("YES");
+	    		return;
+	    	}
+    		
+    		/*for (int j = k-1; j < na; j++) {
+	    		if (a[j] < b[i]) {
+	    			System.out.println("YES");
+	    			return;
+	    		}
+	    	}*/
     	}
-    	int[] bsums = new int[nb-m+1];
-    	
+    	System.out.println("NO");
     	
     }
 

@@ -9,24 +9,35 @@ public class B211352 {
     public static void solve()
     {
     	int n = in.nextInt();
-    	int[] coins = in.nextIntArr(n);
-    	Arrays.sort(coins);
-    	int[] sums = new int[n];
+    	if (n == 1){
+    		System.out.println("1");
+    		return;
+    	}
+    	Integer[] coins = new Integer[n];
+    	for (int i = 0; i < n ; i++) coins[i] = in.nextInt();
+    	Arrays.sort(coins, Collections.reverseOrder());
+    	int[] sumsFront = new int[n];
     	for (int i = 0; i < n; i++){
     		if (i == 0) {
-    			int sum = 0;
-    			for (int j = 1; j < n; j++){
-    				sum += coins[j];
-    			}
-    			sums[0] = coins[0] - sum;
+    			sumsFront[0] = coins[0];
     		}
     		else {
-    			sums[i] = sums[i-1] + 2*coins[i];
-    			if (sums[i] > 0) {
-    				System.out.println(Math.max(0, Math.min(i + 1, n-(i+1)+1)));
-    				return;
-    			}
-    			
+    			sumsFront[i] = sumsFront[i-1] + coins[i];
+    		}
+    	}
+    	int sumsBack[] = new int[n+1];
+    	for (int i = n; i >= 0; i--) {
+    		if (i == n) {
+    			sumsBack[n] = 0;
+    		}
+    		else {
+    			sumsBack[i] = sumsBack[i+1] + coins[i];
+    		}
+    	}
+    	for (int i = 0; i < n; i++) {
+    		if (sumsFront[i] > sumsBack[i+1]){
+    			System.out.println(i+1);
+    			return;
     		}
     	}
     }

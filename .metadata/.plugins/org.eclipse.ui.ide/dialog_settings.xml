@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\shant\Programming\CompetitiveProgramming\Weekly Set Binary Search"/>
+			<item value="C:\Users\shant\Programming\CompetitiveProgramming\RUCP3"/>
+			<item value="C:\Users\shant\Programming\CompetitiveProgramming\RUCP2"/>
+			<item value="C:\Users\shant\Programming\workspace\Weekly Set Binary Search"/>
+			<item value="C:\Users\shant\Programming\workspace\RUCP3"/>
+			<item value="C:\Users\shant\Programming\workspace\RUCP2"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>
