@@ -1,0 +1,142 @@
+import java.io.*;
+import java.util.*;
+
+public class E211352 {
+	static class Tree {
+		static int TOTAL_APPLES;
+		static int TREES_POSITIVE;
+		static int APPLES_POSITIVE;
+		
+		int location;
+		int apples;
+		public Tree(int l, int a) {
+			location = l; apples = a;
+			if (l > 0) {
+				TOTAL_APPLES += a;
+				TREES_POSITIVE++;
+			}
+			else {
+				TOTAL_APPLES += a;
+			}
+		}
+	}
+	
+	static class TreeComparator implements Comparator<Tree> {
+
+		@Override
+		public int compare(Tree o1, Tree o2) {
+			return Integer.compare(Math.abs(o1.location), Math.abs(o2.location));
+		}
+		
+	}
+	
+	
+    static FastReader in = null;
+    static PrintWriter out = null;
+
+    public static void solve()
+    {
+    	int n = in.nextInt();
+    	Tree[] trees = new Tree[n];
+    	for (int i = 0; i < n; i++) {
+    		int pos = in.nextInt();
+    		int num = in.nextInt();
+    		trees[i] = new Tree(pos, num);
+    	}
+    	Arrays.sort(trees, new TreeComparator());
+    	int goTill = 0;
+    	//System.out.println(Tree.TREES_POSITIVE);
+    	if (Tree.TREES_POSITIVE > n - Tree.TREES_POSITIVE) {
+    		goTill = 2*(n-Tree.TREES_POSITIVE) + 1;
+    	}
+    	else {
+    		goTill = 2*(Tree.TREES_POSITIVE);
+    	}
+    	goTill = Math.min(n, goTill);
+    	int total = 0;
+    	for (int i = 0; i < goTill; i++) {
+    		total += trees[i].apples;
+    	}
+    	System.out.println(total);
+    }
+
+	public static void main(String[] args)
+    {
+        in = new FastReader(System.in);
+        out = new PrintWriter(System.out);
+        solve();
+        out.flush();
+        out.close();
+
+    }
+
+	static class FastReader {
+
+        BufferedReader read;
+        StringTokenizer tokenizer;
+
+        public FastReader(InputStream in)
+        {
+            read = new BufferedReader(new InputStreamReader(in));
+        }
+
+        public String next()
+        {
+            while(tokenizer == null || !tokenizer.hasMoreTokens())
+            {
+                try{
+                    tokenizer = new StringTokenizer(read.readLine());
+                }catch(Exception e){
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        public String nextLine(){
+
+            try
+            {
+                return read.readLine();
+            }
+            catch(Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+        public int nextInt()
+        {
+            return Integer.parseInt(next());
+        }
+        public long nextLong()
+        {
+            return Long.parseLong(next());
+        }
+        public double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+
+        public int[] nextIntArr(int n)
+        {
+            int[] a = new int[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextInt();
+            }
+            return a;
+        }
+
+        public long[] nextLongArr(int n)
+        {
+            long[] a = new long[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextLong();
+            }
+            return a;
+        }
+    }
+
+
+}
+

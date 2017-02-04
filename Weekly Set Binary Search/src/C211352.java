@@ -8,9 +8,9 @@ public class C211352 {
 
     public static void solve()
     {
-    	System.out.println(200000L*199999L);
-    	int n = in.nextInt();
-    	long[] b = in.nextLongArr(n);
+    	
+    	long n = in.nextLong();
+    	long[] b = in.nextLongArr((int)n);
     	Arrays.sort(b);
     	long countSmall = 1;
     	int i = 1;
@@ -19,21 +19,21 @@ public class C211352 {
     		i++;
     	} 
     	
-    	int j = n-2;
+    	int j = (int)n-2;
     	long countBig = 1;
-    	while (j >= 0 && b[n-1] == b[j]) {
+    	while (j >= 0 && b[(int) (n-1)] == b[j]) {
     		countBig++;
     		j--;
     	}
     	long ans;
-    	if (i - 1 > j + 1) {
-    		ans = ((n)*(n-1))/2;
+    	if (countSmall + countBig > n) {
+    		ans = (n * (n-1))/2;
     	}
     	else {
-    		ans = (countSmall*countBig);
+    		ans = countSmall*countBig;
     	}
     	
-    	System.out.println((b[n-1] - b[0]) + " " + ans);
+    	System.out.println((b[(int) (n-1)] - b[0]) + " " + ans);
     }
 
 	public static void main(String[] args)
