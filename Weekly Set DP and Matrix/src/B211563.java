@@ -8,8 +8,25 @@ public class B211563 {
 
     public static void solve()
     {
+    	int n = in.nextInt();
+    	int[] a = new int[n];
+    	
+    	int[] counter = new int[10000];
+    	for (int i = 0 ; i < n ; i++) {
+    		a[i] = in.nextInt();
+    		counter[a[i]]++;
+    	}
+    	int[] fn = new int[n];
     	
     }
+    
+    public static int fn (int i, int[] a, int counter[]) {
+    	if (i == 1) return 1;
+    	if (i == 0) return 0;
+    	else return 5;
+    }
+    
+    
 
 	public static void main(String[] args)
     {
