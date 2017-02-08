@@ -1,39 +1,18 @@
 import java.io.*;
 import java.util.*;
 
-public class C211352 {
+public class F211563 {
 
     static FastReader in = null;
     static PrintWriter out = null;
-
+    
     public static void solve()
     {
-    	System.out.println(20000L*19999L);
     	int n = in.nextInt();
-    	long[] b = in.nextLongArr(n);
-    	Arrays.sort(b);
-    	long countSmall = 1;
-    	int i = 1;
-    	while(i < n && b[i] == b[0]) {
-    		countSmall++;
-    		i++;
-    	} 
-    	
-    	int j = n-2;
-    	long countBig = 1;
-    	while (j >= 0 && b[n-1] == b[j]) {
-    		countBig++;
-    		j--;
+    	int a, b, c, d = 1;
+    	for (int i = 1; i <= n; i++) {
+    		
     	}
-    	long ans;
-    	if (i - 1 > j + 1) {
-    		ans = ((n)*(n-1))/2;
-    	}
-    	else {
-    		ans = (countSmall*countBig);
-    	}
-    	
-    	System.out.println((b[n-1] - b[0]) + " " + ans);
     }
 
 	public static void main(String[] args)
