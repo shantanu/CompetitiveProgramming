@@ -1,0 +1,108 @@
+import java.io.*;
+import java.util.*;
+
+public class G211563 {
+
+    static FastReader in = null;
+    static PrintWriter out = null;
+
+    public static void solve()
+    {
+    	char[] s = in.nextLine().toCharArray();
+    	int[] sC = new int[s.length+1];
+    	sC[0] = 0;
+    	for (int i = 1; i < s.length-1; i++) {
+    		if (s[i] == s[i-1])
+    			sC[i] = sC[i-1]+1;
+    		else
+    			sC[i] = sC[i-1];
+    	}
+    	
+    	int m = in.nextInt();
+    	for (int i = 0 ; i < m; i++) {
+    		int l = in.nextInt();
+    		int r = in.nextInt();
+    		System.out.println(sC[r] - sC[l]);
+    	}
+    }
+
+	public static void main(String[] args)
+    {
+        in = new FastReader(System.in);
+        out = new PrintWriter(System.out);
+        solve();
+        out.flush();
+        out.close();
+
+    }
+
+	static class FastReader {
+
+        BufferedReader read;
+        StringTokenizer tokenizer;
+
+        public FastReader(InputStream in)
+        {
+            read = new BufferedReader(new InputStreamReader(in));
+        }
+
+        public String next()
+        {
+            while(tokenizer == null || !tokenizer.hasMoreTokens())
+            {
+                try{
+                    tokenizer = new StringTokenizer(read.readLine());
+                }catch(Exception e){
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        public String nextLine(){
+
+            try
+            {
+                return read.readLine();
+            }
+            catch(Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+        public int nextInt()
+        {
+            return Integer.parseInt(next());
+        }
+        public long nextLong()
+        {
+            return Long.parseLong(next());
+        }
+        public double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+
+        public int[] nextIntArr(int n)
+        {
+            int[] a = new int[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextInt();
+            }
+            return a;
+        }
+
+        public long[] nextLongArr(int n)
+        {
+            long[] a = new long[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextLong();
+            }
+            return a;
+        }
+    }
+
+
+}
+
