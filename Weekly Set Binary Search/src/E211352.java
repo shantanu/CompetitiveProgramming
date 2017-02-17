@@ -38,10 +38,42 @@ public class E211352 {
     			pos_trees.add(new Tree(pos, num));
     		}
     	}
-    	
+    	long totalApples = 0;
     	neg_trees.sort(new TreeComparator());
     	pos_trees.sort(new TreeComparator());
-    	
+    	if (pos_trees.size() > neg_trees.size()) {
+    		int i = 0;
+    		int j = neg_trees.size() - 1;
+    		while (j >= 0) {
+    			totalApples += pos_trees.get(i).apples;
+    			totalApples += neg_trees.get(j).apples;
+    			i++;
+    			j--;
+    		}
+    		totalApples+= pos_trees.get(i).apples;
+    	}
+    	if (pos_trees.size() < neg_trees.size()) {
+    		int i = 0;
+    		int j = neg_trees.size() - 1;
+    		while (i < pos_trees.size()) {
+    			totalApples += pos_trees.get(i).apples;
+    			totalApples += neg_trees.get(j).apples;
+    			i++;
+    			j--;
+    		}
+    		totalApples+= neg_trees.get(j).apples;
+    	}
+    	if (pos_trees.size() == neg_trees.size()) {
+    		int i = 0;
+    		int j = neg_trees.size() - 1;
+    		while (i < pos_trees.size()) {
+    			totalApples += pos_trees.get(i).apples;
+    			totalApples += neg_trees.get(j).apples;
+    			i++;
+    			j--;
+    		}
+    	}
+    	out.println(totalApples);
     	
     }
 

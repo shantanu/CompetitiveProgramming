@@ -1,0 +1,258 @@
+import java.io.*;
+import java.util.*;
+
+public class B211998 {
+	static class Player {
+		int num;
+		int y;
+		boolean hasRed;
+		int tor;
+		String team;
+		
+	}
+	static class Foul {
+		String team;
+		int num;
+		int time;
+		String card;
+		
+	}
+    static FastReader in = null;
+    static PrintWriter out = null;
+
+    public static void solve()
+    {
+    	
+    	String h = in.nextLine();
+    	String a = in.nextLine();
+    	
+    	int n = in.nextInt();
+    	Player homePlayers[] = new Player[100];
+    	Player awayPlayers[] = new Player[100];
+    	for (int i = 0; i < n; i++) {
+    		int time = in.nextInt();
+    		String team = in.next();
+    		int play = in.nextInt();
+    		String card = in.next();
+    		if (team.equals("h")) {
+    			if (homePlayers[play] == null) {
+    				Player p = new Player();
+    				if (card.equals("r")) {
+    					p.hasRed = true;
+    					p.tor = time;
+    				}
+    				homePlayers[play] = p;
+    			}
+    			else {
+    				Player p = homePlayers[play];
+    				if (p.hasRed) continue;
+					p.hasRed = true;
+					p.tor = time;
+					
+    			}
+    		}
+    		else {
+    			if (awayPlayers[play] == null) {
+    				Player p = new Player();
+    				if (card.equals("r")) {
+    					p.hasRed = true;
+    					p.tor = time;
+    				}
+    				awayPlayers[play] = p;
+    			}
+    			else {
+    				Player p = awayPlayers[play];
+    				if (p.hasRed) continue;
+					p.hasRed = true;
+					p.tor = time;
+    			}
+    		}
+    		
+    	}
+    	for (int i = 0; i < 100; i++) {
+    		if (homePlayers[i] != null && homePlayers[i].hasRed) {
+    			Player p = homePlayers[i];
+    			out.printf("%s %d %d \n", h, i, p.tor);
+    		}
+    		if (awayPlayers[i] != null && awayPlayers[i].hasRed) {
+    			Player p = awayPlayers[i];
+    			out.printf("%s %d %d \n", a, i, p.tor);
+    		}
+    	}
+    	/*String h = in.nextLine();
+    	String a = in.nextLine();
+    	int n = in.nextInt();
+    	HashMap<Integer, Player> home = new HashMap<Integer, Player>();
+    	HashMap<Integer, Player> away = new HashMap<Integer, Player>();
+    	ArrayList<Player> hasRedCard = new ArrayList<Player>();
+    	
+    	for (int i = 0; i < n; i++) {
+    		int time = in.nextInt();
+    		String t = in.next();
+    		int play = in.nextInt();
+    		String card = in.next();
+    		
+    		boolean alreadyHasRed = false;
+    		for (int j = 0; j < hasRedCard.size(); j++) {
+        		Player p = hasRedCard.get(j);
+        		if (t.equals("a")) {
+        			if (p.team.equals(a) && p.num == play){
+        				alreadyHasRed = true;
+        			}
+        			break;
+        		}
+        		if (t.equals("h")) {
+        			if (p.team.equals(h) && p.num == play){
+        				alreadyHasRed = true;
+        			}
+        			break;
+        		}
+        		
+        	}
+    		if (alreadyHasRed) continue;
+    		
+    		if (t.equals("h")) {
+    			if (home.get(play) == null) {
+    				Player p = new Player(); p.team = h; p.num = play;
+    				if (card.equals("r")){
+    					p.hasRed = true; p.tor = time;hasRedCard.add(p);
+    				}
+    				else  p.y++;
+    				home.put(play, p);
+    			}
+    			else {
+    				Player p = home.get(play);
+    				if (card.equals("r")){
+    					p.hasRed = true; p.tor = time; hasRedCard.add(p);
+    				}
+    				else {
+	    				p.y++;
+	    				if (p.y == 2) {
+	    					p.hasRed = true; p.tor = time; hasRedCard.add(p);
+	    				}
+    				}
+    			}
+    		}
+    		if (t.equals("a")) {
+    			if (away.get(play) == null) {
+    				Player p = new Player();
+    				p.team = a;
+    				p.num = play;
+    				if (card.equals("r")){
+    					p.hasRed = true;
+    					p.tor = time;
+    					hasRedCard.add(p);
+    				}
+    				else {
+    					p.y++;
+    				}
+    				
+    				away.put(play, p);
+    			}
+    			else {
+    				Player p = away.get(play);
+    				if (card.equals("r")){
+    					p.hasRed = true;
+    					p.tor = time;
+    					hasRedCard.add(p);
+    				}
+    				else {
+	    				p.y++;
+	    				if (p.y == 2) {
+	    					p.hasRed = true;
+	    					p.tor = time;
+	    					hasRedCard.add(p);
+	    				}
+    				}
+    			}
+    		}
+    		
+    	}
+    	for (int i = 0; i < hasRedCard.size(); i++) {
+    		Player p = hasRedCard.get(i);
+    		out.printf("%s %d %d \n", p.team, p.num, p.tor);
+    	}*/
+    	
+    	
+    }
+
+	public static void main(String[] args)
+    {
+        in = new FastReader(System.in);
+        out = new PrintWriter(System.out);
+        solve();
+        out.flush();
+        out.close();
+
+    }
+
+	static class FastReader {
+
+        BufferedReader read;
+        StringTokenizer tokenizer;
+
+        public FastReader(InputStream in)
+        {
+            read = new BufferedReader(new InputStreamReader(in));
+        }
+
+        public String next()
+        {
+            while(tokenizer == null || !tokenizer.hasMoreTokens())
+            {
+                try{
+                    tokenizer = new StringTokenizer(read.readLine());
+                }catch(Exception e){
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        public String nextLine(){
+
+            try
+            {
+                return read.readLine();
+            }
+            catch(Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+        public int nextInt()
+        {
+            return Integer.parseInt(next());
+        }
+        public long nextLong()
+        {
+            return Long.parseLong(next());
+        }
+        public double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+
+        public int[] nextIntArr(int n)
+        {
+            int[] a = new int[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextInt();
+            }
+            return a;
+        }
+
+        public long[] nextLongArr(int n)
+        {
+            long[] a = new long[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextLong();
+            }
+            return a;
+        }
+    }
+
+
+}
+
