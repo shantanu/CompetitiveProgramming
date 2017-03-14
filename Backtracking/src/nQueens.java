@@ -19,12 +19,15 @@ public class nQueens {
 		board = new int[N+1];
 		ans = new ArrayList<>();
 		rQueens(1);
-		System.out.println(numberOfSols);
+		System.out.println("# solutions: " + numberOfSols);
+		printAns();
     }
     
     public static void rQueens (int row) {
-		if (row > N)
+		if (row > N) {
 			numberOfSols++;
+			addSolToList();
+		}
 		for (int c = 1; c <= N; c++) {
 			int s = row + c;
 			int d = row - c + N;
@@ -40,7 +43,7 @@ public class nQueens {
 	
 	
 
-	/*
+	
 	public static void addSolToList() {
 		
 		
@@ -81,5 +84,5 @@ public class nQueens {
 		}
 		System.out.println();
 	}
-	*/
+	
 }

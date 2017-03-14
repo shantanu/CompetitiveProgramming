@@ -1,0 +1,136 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class B212472 {
+
+    static FastReader in = null;
+    static PrintWriter out = null;
+    static ArrayList<String> nums;
+    public static void solve()
+    {
+    	nums = new ArrayList<String>();
+    	int m = in.nextInt();
+    	int s = in.nextInt();
+    	if (s > m*9 || s == 0) {
+    		out.println("-1 -1");
+    		return;
+    	}
+    	char[] maxnum = getmaxnum(0, s, new char[m]);
+    	
+    	
+    	
+    	
+    	
+    	out.print(new String(maxnum));
+    	
+    }
+    
+    public static char[] getmaxnum(int index, int s, char[] num) {
+		if (s >= 9) {
+			num[index] = '9';
+			return getmaxnum(index+1, s-9, num);
+		}
+		else {
+			num[index] = (char)s - 48;
+			return num;
+		}
+    }
+    
+    public static void bruteforce(int m, int s, StringBuilder num) {
+    	if (m > 0 && (s > m*9)) {
+    		for (int i = 0; i < 9; i++) {
+    			bruteforce (m-1, s-i, num.append(i + ""));
+    		}
+    	}
+    	if (s == 0 && m > 0) {
+    		for (int i = 0; i < m; i++) {
+    			num.append('0');
+    		}
+    		nums.add(num.toString());
+    	}
+    	if (m == 0 && s == 0) {
+    		nums.add(num.toString());
+    	}
+    }
+
+	public static void main(String[] args)
+    {
+        in = new FastReader(System.in);
+        out = new PrintWriter(System.out);
+        solve();
+        out.flush();
+        out.close();
+
+    }
+
+	static class FastReader {
+
+        BufferedReader read;
+        StringTokenizer tokenizer;
+
+        public FastReader(InputStream in)
+        {
+            read = new BufferedReader(new InputStreamReader(in));
+        }
+
+        public String next()
+        {
+            while(tokenizer == null || !tokenizer.hasMoreTokens())
+            {
+                try{
+                    tokenizer = new StringTokenizer(read.readLine());
+                }catch(Exception e){
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        public String nextLine(){
+
+            try
+            {
+                return read.readLine();
+            }
+            catch(Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+        public int nextInt()
+        {
+            return Integer.parseInt(next());
+        }
+        public long nextLong()
+        {
+            return Long.parseLong(next());
+        }
+        public double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+
+        public int[] nextIntArr(int n)
+        {
+            int[] a = new int[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextInt();
+            }
+            return a;
+        }
+
+        public long[] nextLongArr(int n)
+        {
+            long[] a = new long[n];
+            for(int i=0; i<n; ++i)
+            {
+                a[i] = nextLong();
+            }
+            return a;
+        }
+    }
+
+
+}
+
