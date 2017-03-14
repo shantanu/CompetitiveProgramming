@@ -3,8 +3,11 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="F211352.Laptop.LaptopComparator"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSeparatorUI"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="java.math.BigInteger"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+=======
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+>>>>>>> f2cf7d7137089874e4e56e9280355f5ce6096688
 </qualifiedTypeNameHistroy>

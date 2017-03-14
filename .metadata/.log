@@ -601,6 +601,7 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.lang.Thread.run(Unknown Source)
+<<<<<<< HEAD
 !SESSION 2017-03-03 20:29:09.419 -----------------------------------------------
 eclipse.buildId=4.6.2.M20161124-1400
 java.version=1.8.0_66
@@ -610,12 +611,24 @@ Framework arguments:  -product org.eclipse.epp.package.java.product -product org
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\Users\shant\Programming\CompetitiveProgramming -product org.eclipse.epp.package.java.product
 
 !ENTRY org.eclipse.egit.ui 2 0 2017-03-03 20:29:27.418
+=======
+!SESSION 2017-03-08 17:33:09.120 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-03-08 17:33:28.960
+>>>>>>> f2cf7d7137089874e4e56e9280355f5ce6096688
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\shant'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.recommenders.types.rcp 1 4 2017-03-03 20:59:44.924
 !MESSAGE Full project indexing required:
   [+] C:\Program Files\Java\jdk1.8.0_66\jre\lib\charsets.jar
@@ -739,18 +752,30 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 !SESSION 2017-03-13 22:29:58.065 -----------------------------------------------
 eclipse.buildId=4.6.2.M20161124-1400
 java.version=1.8.0_66
+=======
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2017-03-08 17:33:37.487
+!MESSAGE Setup tasks were performed during startup updating 5 preferences. See 'C:\Users\shant\eclipse\java-neon\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details
+!SESSION 2017-03-09 20:38:10.470 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+>>>>>>> f2cf7d7137089874e4e56e9280355f5ce6096688
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.egit.ui 2 0 2017-03-13 22:30:30.462
+=======
+!ENTRY org.eclipse.egit.ui 2 0 2017-03-09 20:38:32.353
+>>>>>>> f2cf7d7137089874e4e56e9280355f5ce6096688
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\shant'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.equinox.p2.engine 4 4 2017-03-13 22:34:54.564
 !MESSAGE An error occurred while collecting items to be installed
 !SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2017-03-13 22:34:54.565
@@ -875,3 +900,7 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.lang.Thread.run(Thread.java:745)
+=======
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2017-03-09 20:38:40.102
+!MESSAGE Setup tasks were performed during startup updating 5 preferences. See 'C:\Users\shant\eclipse\java-neon\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details
+>>>>>>> f2cf7d7137089874e4e56e9280355f5ce6096688
